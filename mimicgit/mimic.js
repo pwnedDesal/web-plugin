@@ -83,7 +83,7 @@ function mimic_git(text_response,randomstring,username,filename){
 		///////////////////////////////////////////////
 
 
-		HTMLcode="<tr><td class='line-number'>"+ i +"</td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
+		HTMLcode="<tr><td class='line-number' code-line='"+ i +"'></td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
 		//some check here 
 		//////
 		console.log("line of " + i +  " " + HTMLcode);
@@ -221,9 +221,10 @@ function init_class(github_uri,class_cont){
 			//randomstring=final_url.match(regex_randomstring)[0];
 			randomstring=Math.random();
 			var targetobj=document.getElementById(class_cont);
+			var text = xhr.responseText;
 			//init here
 			//get the table unique table id 
-			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link' href="+url+">&lt;/viewraw&gt;</a>|copy me</span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
+			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link' href="+url+">&lt;/viewraw&gt;</a>|<a href='javascript:document.execCommand(&apos;copy&apos;);' class='link'>copy me</a></span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
 
 			targetobj.innerHTML=htmlobj;
 			var regex_filename=/(\/.{4,15}\.(.{4}$|.{3}$))/;
@@ -231,7 +232,7 @@ function init_class(github_uri,class_cont){
 			var filename=url.match(regex_filename)[0];
 			var username=url.match(regex_username)[0];
 			console.log('CORS BELOW');
-			var text = xhr.responseText;
+			
 			//alert(text);
 			mimic=mimic_git(text,randomstring,username,filename);
 
@@ -259,3 +260,7 @@ function init_class(github_uri,class_cont){
 
 }
 	
+function clip_board(text){
+
+
+}
