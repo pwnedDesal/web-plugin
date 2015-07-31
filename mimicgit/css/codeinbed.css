@@ -7,10 +7,10 @@
     align-items: flex-start;
 }**/
 .flexy{
-
 	
 }
 .body{
+
 display: block;
 background-color: #22313F;
 border-radius: 4.2px;
@@ -26,12 +26,60 @@ padding-bottom: 15px;
    border-bottom-left-radius: 0px;
  padding-left: 10px;
  padding-right: 10px;
- 	background-image: url('../images/iocn.png');
+ 	background-image: url('../images/blueprint-dark.png');
 	background-repeat: repeat;
+
+/**slide menu**/
+
+}
+
+.footcommand{
+	font-size: 12px;
+	transition: width .2s;
+	color:black;
+	width: 40px;
+	border-radius: 4px;
+	background-color: #f7f7f7;
+	position: absolute;
+	right: 20px;
+	color: black;
+	font-weight: bold;
+	padding: 2px;
+}
+
+
+
+.hiddenT{
+	
+	
+	cursor: pointer;
+	color: transparent;
+	font-weight: bold;
+	font-size: 12px;
+	/**overflow: hidden;**/
+	width: 0px;
+	background-color: transparent;
+	right: -170px;
+	position: absolute;
+	overflow: hidden;
+	transition: width .2s;
+
 
 
 }
 
+.footcommand:hover{
+width: 160px;
+}
+
+.footcommand:hover .hiddenT{
+	right: 1px;
+	color:black;
+	width: 120px;
+	top:inherit;
+
+
+}
 
 table{
 
@@ -47,11 +95,12 @@ td{
 	
 }
 
-
+/** footer**/
 .footer{
+
 padding: 10px;
     overflow: hidden;
-    color: #767676;
+    color: #4E4B4B;
     background-color: #f7f7f7;
 
  border-color: gray;
@@ -60,11 +109,18 @@ padding: 10px;
  font:12px Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
    border-bottom-right-radius: 4.2px;
    border-bottom-left-radius: 4.2px;
+   font-weight: bold;
 }
-.footnote{
-	float: right;
-	cursor: pointer;
+
+
+.by{
+
+	font-weight: normal;
 }
+.user-info{
+	
+}
+/**end footer**/
 
 .line-number{
 	    border-right: solid #eee;
@@ -75,14 +131,26 @@ padding: 10px;
     padding: 1px 10px;
     cursor:pointer;
 }
+.line-number:hover{
+	color:#D0CDCD;
+}
 .code-content{
 padding: 1px 10px;
 font-size: medium;
 }
+.code-content:hover{
+	background-color:#636060;
+}
+/**highlter**/
 .predefined-key{
 color:#66D9EF;
 
 }
-.club{
-	font-size: 15px;
+
+.string{
+color: #65b042;
+}
+.link{
+	text-decoration: none;
+	color: #4E4B4B;
 }
