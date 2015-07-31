@@ -1,6 +1,6 @@
 github_source_code=[
 {'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'a'},
-{'source_uri':'https://gist.githubusercontent.com/deadstar1/3cb788d3ad7354bfb9de/raw/0598570486a6aa721f46449cb871f1644dc59cf2/test1.html','cont_ID':'b'}
+{'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'b'}
 ];
 
 i=0
@@ -218,7 +218,8 @@ function init_class(github_uri,class_cont){
 		//response handlers.
 		xhr.onload=function(){
 			regex_randomstring=/\w+\/(\w+)\/raw/;
-			randomstring=final_url.match(regex_randomstring)[0];
+			//randomstring=final_url.match(regex_randomstring)[0];
+			randomstring=Math.random();
 			var targetobj=document.getElementById(class_cont);
 			//init here
 			//get the table unique table id 
