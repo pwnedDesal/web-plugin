@@ -85,6 +85,7 @@ table{
 
 	color: white;
 	border-collapse: collapse;
+	width: 100%;
 
 }
 td{
@@ -123,13 +124,14 @@ padding: 10px;
 /**end footer**/
 
 .line-number{
-	    border-right: solid #eee;
-	     border-width: 0 1px 0 0;
-	    text-align: right;
-	    font-size: 12px;
+	border-right: solid #eee;
+	border-width: 0 1px 0 0;
+	text-align: right;
+	font-size: 12px;
     line-height: 18px;
     padding: 1px 10px;
     cursor:pointer;
+    width: 1px;
 }
 .line-number:hover{
 	color:#D0CDCD;
@@ -141,9 +143,9 @@ padding: 10px;
 padding: 1px 10px;
 font-size: medium;
 }
-#line-of-code:hover .line-number{
-	/**background-color:#636060;**/
-	color:#D0CDCD;
+#line-of-code:hover{
+	background-color:#636060;
+	/**color:#D0CDCD;**/
 }
 /**highlter**/
 .predefined-key{
