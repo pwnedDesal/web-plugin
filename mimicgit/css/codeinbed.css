@@ -7,6 +7,7 @@
     align-items: flex-start;
 }**/
 .flexy{
+	position: relative;
 	
 }
 .body{
@@ -28,7 +29,6 @@ padding-bottom: 15px;
  padding-right: 10px;
  	background-image: url('../images/blueprint-dark.png');
 	background-repeat: repeat;
-	position: relative;
 
 /**slide menu**/
 
@@ -166,3 +166,5 @@ color: #65b042;
 	text-decoration: none !important;
 	color: #4E4B4B !important;
 }
+
+/** syntax highlighter Class**/

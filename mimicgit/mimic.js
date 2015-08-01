@@ -30,34 +30,7 @@ function createCORSRequest(method,url){
 		}
 		return xhr;
 	}
-function syntax_highlighter(htmlcode){
-	//var exp=/\<\/{0,1}(\w)\>/g;
-	//    &lt;\/{0,1}(\w)&gt;
-		syntax_highlighter=[
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&quot;.{1,10}&quot;)"},
-		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(include|package|this)"},
-		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(echo)"},
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(new)"},
-		{"replacement":"<span style='color:#F3933B'>$1</span>","regex":"(isset|long|short|if|var|for|while|do while)"},
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&apos;.{1,10}&apos;)"},
-		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\{)"},
-		{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"(&lt;|&gt;)"}
-		//{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"&lt;(.)+&gt;"}
 
-		];
-	x=0;
-	while(syntax_highlighter[x]){
-        var re= new RegExp(syntax_highlighter[x].regex,'g');
-		htmlcode=htmlcode.replace(re,syntax_highlighter[x].replacement);
-		x=x+1;
-		console.log("loop of syntax_highlighter" + x);
-      
-
-		}
-		console.log("debug:" + htmlcode);
-	return htmlcode;
-
-}
 
 function mimic_git(text_response,randomstring,username,filename){
 	var regex_code_line=/((.{0,})(\s)?)/g;
@@ -69,19 +42,34 @@ function mimic_git(text_response,randomstring,username,filename){
 	
 	var FinalHTMLcode='';
 	console.log('alert block of code is comming!');
+	highligted_syntax='';
 	for (var i = 0; i < codex.length; i++) {
 		//alert(codex[i]);
-		raw_htmlcode=codex[i].replace(/\</g,"&lt;").replace(/\>/g,"&gt;").replace(/\'/g,"&apos;").replace(/\"/g,"&quot;").replace(/\n/g,"&NewLine;").replace(/\s/g,"&nbsp;");
-		//raw_htmlcode1=syntax_highlighter(raw_htmlcode);
-		/////////////		////////////////////////////////////////////////
-			///////////////////////////////////////////////solution: HTML code the special chart(look up!)
+		raw_htmlcode=codex[i].replace(/\</g,"&lt;").replace(/\>/g,"&gt;").replace(/\'/g,"&apos;").replace(/\"/g,"&quot;").replace(/\n/g,"&NewLine;").replace(/\s/g,"&nbsp;").replace(/\=/g,"&equals;").replace(/\:/,'&colon;').replace(/\#/,'&num;');
 
-	
+		syntax_highlighter=[
+		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&quot;.{1,10}&quot;)"},
+		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(include|package|this)"},
+		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(echo)"},
+		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(new)"},
+		{"replacement":"<span style='color:#F3933B'>$1</span>","regex":"(isset|long|short|var|if|for|while|do while|&equals;)"},
+		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&apos;.{1,10}&apos;)"},
+		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\{)"},
+		{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"(&lt;|&gt;)"}
+		//{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"&lt;(.)+&gt;"}
 
-		////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////
+		];
+		x=0;
+		while(syntax_highlighter[x]){//checking happens here!
+        	var re= new RegExp(syntax_highlighter[x].regex,'g');
+			raw_htmlcode=raw_htmlcode.replace(re,syntax_highlighter[x].replacement);
+			x=x+1;
+			console.log("loop of syntax_highlighter" + x);
+      
 
-		///////////////////////////////////////////////
+		}
+
+
 
 
 		HTMLcode="<tr id='line-of-code'><td class='line-number' code-line='"+ i +"'></td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
@@ -91,59 +79,8 @@ function mimic_git(text_response,randomstring,username,filename){
 		FinalHTMLcode=FinalHTMLcode + HTMLcode; // update the finalhtmlcode variable
 		console.log(FinalHTMLcode);
 	};
-		/**while(codex[i]){//check line by line.
-		//alert(codex[i]);
-		raw_htmlcode=codex[i].replace(/\</g,"&lt;").replace(/\>/g,"&gt;").replace(/\'/g,"&apos;").replace(/\"/g,"&quot;").replace(/\n/g,"&NewLine;").replace(/\s/g,"&nbsp;");
-		//raw_htmlcode1=syntax_highlighter(raw_htmlcode);
-		/////////////		////////////////////////////////////////////////
-		///////////////////////////////////////////////solution: HTML code the special chart(look up!)
-
 	
-
-		////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////
-
-		///////////////////////////////////////////////
-
-
-		HTMLcode="<tr><td class='line-number'>"+ i +"</td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
-		//some check here 
-		//////
-		alert("line of " + i +  " " + HTMLcode);
-		FinalHTMLcode=FinalHTMLcode + HTMLcode; // update the finalhtmlcode variable
-		console.log(FinalHTMLcode);
-
-
-		i=i+1;
-
-
-		}**/
-		//highligth
-		//////////////////////////////////////////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		//var exp=/\<\/{0,1}(\w)\>/g;
-		//    &lt;\/{0,1}(\w)&gt;
-		syntax_highlighter=[
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&quot;.{1,10}&quot;)"},
-		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(include|package|this)"},
-		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(echo)"},
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(new)"},
-		{"replacement":"<span style='color:#F3933B'>$1</span>","regex":"(isset|long|short|if|var|for|while|do while)"},
-		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&apos;.{1,10}&apos;)"},
-		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\{)"},
-		{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"(&lt;|&gt;)"}
-		//{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"&lt;(.)+&gt;"}
-
-		];
-		x=0;
-		while(syntax_highlighter[x]){
-        	var re= new RegExp(syntax_highlighter[x].regex,'g');
-			FinalHTMLcode=FinalHTMLcode.replace(re,syntax_highlighter[x].replacement);
-			x=x+1;
-			console.log("loop of syntax_highlighter" + x);
-      
-
-		}
+		
 		//conso("debug:" + FinalHTMLcode);
 
 
@@ -252,13 +189,13 @@ function init_class(github_uri,class_cont){
 		xhr.onprogress=function(){
 			//alert('progess');
 			target_id=class_cont;
-			document.getElementById(target_id).innerHTML="<h1>loading......</h1>"
+			document.getElementById(target_id).innerHTML="<img src='images/preloader2.gif' width='100px' height='100px' style='align:center'>";
 
 		}
 		xhr.onloadstart=function(){
 			//alert('progess');
 			target_id=class_cont;
-			document.getElementById(target_id).innerHTML="<h1>loading......</h1>"
+			document.getElementById(target_id).innerHTML="<img src='images/preloader2.gif' width='100px' height='100px' style='align:center'>";
 
 
 		}
