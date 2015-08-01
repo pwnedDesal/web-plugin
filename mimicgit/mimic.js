@@ -181,7 +181,7 @@ function init_class(github_uri,class_cont){
 	var regex_url=/^(https:\/\/(gist|raw).githubusercontent.com)\/(\w+)\/(\w+)/;
 	var final_url=url.match(regex_url)[0] + '/raw';
 	console.log('final_uri:' + final_url);
-	var regex_raw=/raw/;
+	var regex_raw=/https:\/\/raw/;
 	if(regex_raw.test(url)){
 		final_url=url;
 	}
@@ -215,7 +215,7 @@ function init_class(github_uri,class_cont){
 	//inserting the code to your table.
 	
 	//CORS request
-
+	
 	var xhr=createCORSRequest('GET',final_url);
 	if(!xhr){
 		alert('cors not supported');
@@ -235,6 +235,7 @@ function init_class(github_uri,class_cont){
 			var regex_filename=/(\/\w+(\.\w+)?)$/;
 			var regex_username=/(\/.{5,20}\/)/;
 			var filename=url.match(regex_filename)[0];
+
 			var username=url.match(regex_username)[0];
 			console.log('CORS BELOW');
 			
