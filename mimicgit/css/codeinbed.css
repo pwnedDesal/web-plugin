@@ -141,7 +141,7 @@ padding: 10px;
 padding: 1px 10px;
 font-size: medium;
 }
-.code-content:hover{
+#line-of-code:hover{
 	background-color:#636060;
 }
 /**highlter**/

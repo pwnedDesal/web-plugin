@@ -84,7 +84,7 @@ function mimic_git(text_response,randomstring,username,filename){
 		///////////////////////////////////////////////
 
 
-		HTMLcode="<tr><td class='line-number' code-line='"+ i +"'></td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
+		HTMLcode="<tr id='line-of-code'><td class='line-number' code-line='"+ i +"'></td><td class='code-content'><code>"+ raw_htmlcode +"</code></td></tr>";
 		//some check here 
 		//////
 		console.log("line of " + i +  " " + HTMLcode);
