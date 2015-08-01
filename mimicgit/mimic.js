@@ -1,8 +1,8 @@
-//test
 github_source_code=[
 {'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'a'},
-{'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'b'}
-];
+{'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'b'},
+{'source_uri':'https://raw.githubusercontent.com/deadstar1/home-made-tools/master/kompare.py/kompare.py','cont_ID':'c'}
+]
 
 i=0
 while(github_source_code[i]){
@@ -178,9 +178,13 @@ function init_class(github_uri,class_cont){
 	//regex_randomstring=/\w+\/(\w+)\/raw/;
 	//randomstring=url.match(regex_randomstring)[0];
 
-	var regex_url=/^(https:\/\/gist.githubusercontent.com)\/(\w+)\/(\w+)/;
+	var regex_url=/^(https:\/\/(gist|raw).githubusercontent.com)\/(\w+)\/(\w+)/;
 	var final_url=url.match(regex_url)[0] + '/raw';
 	console.log('final_uri:' + final_url);
+	var regex_raw=/raw/;
+	if(regex_raw.test(url)){
+		final_url=url;
+	}
 
 	//var x = document.getElementsByTagName("script");
 	//loc=0;
@@ -228,7 +232,7 @@ function init_class(github_uri,class_cont){
 			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link' href="+url+">&lt;/viewraw&gt;</a>|<a href='javascript:document.execCommand(&apos;copy&apos;);' class='link'>copy me</a></span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
 
 			targetobj.innerHTML=htmlobj;
-			var regex_filename=/(\/.{4,15}\.(.{4}$|.{3}$))/;
+			var regex_filename=/(\/.{4,15}\.(.{4}$|.{2}$))/;
 			var regex_username=/(\/.{5,20}\/)/;
 			var filename=url.match(regex_filename)[0];
 			var username=url.match(regex_username)[0];
