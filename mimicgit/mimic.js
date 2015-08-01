@@ -232,7 +232,7 @@ function init_class(github_uri,class_cont){
 			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link' href="+url+">&lt;/viewraw&gt;</a>|<a href='javascript:document.execCommand(&apos;copy&apos;);' class='link'>copy me</a></span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
 
 			targetobj.innerHTML=htmlobj;
-			var regex_filename=/(\/.{4,15}\.(.{4}$|.{2}$))/;
+			var regex_filename=/(\/\w+(\.\w+)?)$)/;
 			var regex_username=/(\/.{5,20}\/)/;
 			var filename=url.match(regex_filename)[0];
 			var username=url.match(regex_username)[0];
