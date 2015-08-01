@@ -159,7 +159,7 @@ function mimic_git(text_response,randomstring,username,filename){
 		//var FinalHTMLcode=syntax_highlighter(FinalHTMLcode);
 		tableofcontent.innerHTML=FinalHTMLcode;
 		//metadata
-		metadata=filename + " <span class='by'>by</span><a class='link' href=https://github.com/"+ username +">"+ username + "</a> &#32;&#32;|&#32;&#32;Mimic_Git";
+		metadata=filename + " <span class='by'>by</span><a class='link-mimic' href=https://github.com/"+ username +">"+ username + "</a> &#32;&#32;|&#32;&#32;Mimic_Git";
 		var div_metadata=document.getElementById('user-info-'+ randomstring);
 		div_metadata.innerHTML=metadata;
 			
@@ -229,7 +229,7 @@ function init_class(github_uri,class_cont){
 			var text = xhr.responseText;
 			//init here
 			//get the table unique table id 
-			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link' href="+url+">&lt;/viewraw&gt;</a>|<a href='javascript:document.execCommand(&apos;copy&apos;);' class='link'>copy me</a></span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
+			var htmlobj="<div class='flexy'><div class='body'><span class='footcommand'><span>Toggle:</span><span class='hiddenT'><a class='link-mimic' href="+url+">&lt;/viewraw&gt;</a>|<a href='javascript:document.execCommand(&apos;copy&apos;);' class='link-mimic'>copy me</a></span></span><table class='tableofcontent' id='tableofcontent-"+ randomstring +"'></table></div><div class='footer'><span class='club'>&clubs;&#32;&#32; &#32; </span><span class='user-info' id='user-info-"+ randomstring +"'></span></div></div>";
 
 			targetobj.innerHTML=htmlobj;
 			var regex_filename=/(\/\w+(\.\w+)?)$/;

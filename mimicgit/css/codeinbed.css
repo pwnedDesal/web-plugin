@@ -28,23 +28,26 @@ padding-bottom: 15px;
  padding-right: 10px;
  	background-image: url('../images/blueprint-dark.png');
 	background-repeat: repeat;
+	position: relative;
 
 /**slide menu**/
 
 }
 
 .footcommand{
-	font-size: 12px;
+	font-size: 11px;
 	transition: width .2s;
 	color:black;
-	width: 40px;
+	width: 43px;
 	border-radius: 4px;
 	background-color: #f7f7f7;
 	position: absolute;
-	right: 20px;
+	right: 12px;
 	color: black;
 	font-weight: bold;
 	padding: 2px;
+	float: left;
+	overflow: hidden;
 }
 
 
@@ -57,12 +60,14 @@ padding-bottom: 15px;
 	font-weight: bold;
 	font-size: 12px;
 	/**overflow: hidden;**/
-	width: 0px;
+	width: 120px;
 	background-color: transparent;
 	right: -170px;
 	position: absolute;
+    
 	overflow: hidden;
-	transition: width .2s;
+	transition: width .1s;
+
 
 
 
@@ -77,6 +82,7 @@ width: 160px;
 	color:black;
 	width: 120px;
 	top:inherit;
+	position: inherit;
 
 
 }
@@ -156,7 +162,7 @@ color:#66D9EF;
 .string{
 color: #65b042;
 }
-.link{
-	text-decoration: none;
-	color: #4E4B4B;
+.link-mimic{
+	text-decoration: none !important;
+	color: #4E4B4B !important;
 }
