@@ -48,13 +48,14 @@ function mimic_git(text_response,randomstring,username,filename){
 		raw_htmlcode=codex[i].replace(/\</g,"&lt;").replace(/\>/g,"&gt;").replace(/\'/g,"&apos;").replace(/\"/g,"&quot;").replace(/\n/g,"&NewLine;").replace(/\s/g,"&nbsp;").replace(/\=/g,"&equals;").replace(/\:/,'&colon;').replace(/\#/,'&num;');
 
 		syntax_highlighter=[
+		{"replacement":"<span style='color:#ff7b7b'>$1</span>","regex":"([0-9])+"},
 		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&quot;.{1,10}&quot;)"},
 		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(include|package|this)"},
 		{"replacement":"<span style='color:#66D9EF'>$1</span>","regex":"(echo)"},
 		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(new)"},
 		{"replacement":"<span style='color:#F3933B'>$1</span>","regex":"(isset|long|short|var|if|for|while|do while|&equals;)"},
 		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&apos;.{1,10}&apos;)"},
-		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\{)"},
+		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\(\)\{)"},
 		{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"(&lt;|&gt;)"}
 		//{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"&lt;(.)+&gt;"}
 
