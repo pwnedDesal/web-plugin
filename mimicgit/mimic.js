@@ -1,6 +1,6 @@
 github_source_code=[
 {'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'a'},
-{'source_uri':'https://gist.githubusercontent.com/deadstar1/77ab3e3b5f152fb77058/raw/91b9ef54efefc986c09cb3f02a44465a3b329942/test.html','cont_ID':'b'},
+{'source_uri':'https://gist.githubusercontent.com/deadstar1/b42a81522cbd69b5952c/raw/30a20e48d968e1d94020816b37de1d5cf5d29d1a/curl.html','cont_ID':'b'},
 {'source_uri':'https://gist.githubusercontent.com/deadstar1/3cb788d3ad7354bfb9de/raw/0598570486a6aa721f46449cb871f1644dc59cf2/test1.html','cont_ID':'c'}
 ]
 
@@ -55,7 +55,7 @@ function mimic_git(text_response,randomstring,username,filename){
 		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(new)"},
 		{"replacement":"<span style='color:#F3933B'>$1</span>","regex":"(isset|long|short|var|if|for|while|do while|&equals;)"},
 		{"replacement":"<span style='color:#a6e22e'>$1</span>","regex":"(&apos;.{1,10}&apos;)"},
-		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\(\)\{)"},
+		{"replacement":"<span style='color:#F3933B'>$1<span style='color:#FFD700'>$2<span style='color:white'>$3</span></span></span>","regex":"(function)(.+)(\((.{0,})\)\{)"},
 		{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"(&lt;|&gt;)"}
 		//{"replacement":"<span style='color:#00FFAC'>$1</span>","regex":"&lt;(.)+&gt;"}
 
@@ -124,27 +124,6 @@ function init_class(github_uri,class_cont){
 		final_url=url;
 	}
 
-	//var x = document.getElementsByTagName("script");
-	//loc=0;
-	//i=0;
-	//while(x[i]){
-	//alert(x[i].getAttribute('src'));
-	//regex=/(noob.js)$/g;
-	//if(regex.test(x[i].getAttribute('src'))){
-	//	console.log("location of script tag" + x[i] + " found at " + i);
-	//	loc=i;
-	//break;
-	//}
-	//	i=i+1;
-	//}
-
-	//console.log(x[loc].parentElement); //parent of selected <script> tag
-
-	//creating a new child
-	//newdiv=document.createElement('div');
-	//newdiv.setAttribute('id','mimic-' + randomstring);
-	//x[loc].parentElement.insertBefore(newdiv,x[loc]);
-	//########################////
 
 	//var targetobj=document.getElementById('mimic-'+ randomstring);
 	console.log('class_cont:' + class_cont );
@@ -190,13 +169,13 @@ function init_class(github_uri,class_cont){
 		xhr.onprogress=function(){
 			//alert('progess');
 			target_id=class_cont;
-			document.getElementById(target_id).innerHTML="<img src='images/preloader2.gif' width='100px' height='100px' style='align:center'>";
+			document.getElementById(target_id).innerHTML="&#x1F300;";
 
 		}
 		xhr.onloadstart=function(){
 			//alert('progess');
 			target_id=class_cont;
-			document.getElementById(target_id).innerHTML="<img src='images/preloader2.gif' width='100px' height='100px' style='align:center'>";
+			document.getElementById(target_id).innerHTML="&#x1F300;";
 
 
 		}
