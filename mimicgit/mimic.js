@@ -4,7 +4,7 @@ github_source_code=[
 {'source_uri':'https://gist.githubusercontent.com/deadstar1/3cb788d3ad7354bfb9de/raw/0598570486a6aa721f46449cb871f1644dc59cf2/test1.html','cont_ID':'c'}
 ]
 
-i=0
+i=0;
 while(github_source_code[i]){
 	console.log(github_source_code[i].source_uri);
 	console.log(github_source_code[i].cont_ID);
