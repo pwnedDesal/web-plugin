@@ -101,7 +101,21 @@ td{
 .git{
 	
 }
-
+/* output */
+.output-header{
+	border-left: solid 0.06rem gray;
+	border-right: solid 0.06rem gray;
+	border-bottom: solid 0.06rem gray;
+	padding:0.5rem;
+	font-weight: 400;
+	font-size: 1.2rem;
+}
+.output-body{
+	border-left: solid 0.06rem gray;
+	border-right: solid 0.06rem gray;
+	padding:0.5rem;
+	padding-top:.9rem;
+}
 /** footer**/
 .footer{
 
